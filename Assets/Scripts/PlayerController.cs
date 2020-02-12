@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && grounded)
+        if (Input.GetAxis(inputs[2]) != 0 && grounded)
         {
             grounded = false;
             rb.velocity = jump;
@@ -38,6 +38,6 @@ public class PlayerController : MonoBehaviour
     {
         // float moveHorizontal = -Input.GetAxisRaw("LeftJoyStickHorizontal");
         // float moveVertical = Input.GetAxisRaw("LeftJoyStickVertical");
-        transform.Translate(Input.GetAxis(inputs[0]) * speed * Time.deltaTime, 0, Input.GetAxis(inputs[1]) * speed * Time.deltaTime);
+        transform.position += new Vector3(Input.GetAxis(inputs[0]) * speed * Time.deltaTime, 0.0f, Input.GetAxis(inputs[1]) * speed * Time.deltaTime);
     }
 }
