@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
     private Vector3 jump;
     private bool grounded;
-    [SerializeField] private Transform cameraTransform;
 
     void Start()
     {
