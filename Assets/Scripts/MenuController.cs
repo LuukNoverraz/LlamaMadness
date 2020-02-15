@@ -23,11 +23,6 @@ public class MenuController : MonoBehaviour
         playerSelection.SetActive(true);
     }
 
-    // public void PlayButton()
-    // {
-    //     SceneManager.LoadScene("Main");
-    // }
-
     public void BackButton()
     {
         playerSelection.SetActive(false);
