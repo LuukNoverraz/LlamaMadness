@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private RectTransform borderTransform;
+    [SerializeField] private GameObject canvas;
     void Start()
     {
         if (AmountOfPlayers.playerCount == 2)
         {
+            GameObject newCanvas = Instantiate(canvas) as GameObject;
             Debug.Log("2");
         }
         if (AmountOfPlayers.playerCount == 3)
         {
             Debug.Log("3");
         }
-        borderTransform.localPosition = new Vector2(Screen.width / AmountOfPlayers.playerCount, 0);
-        borderTransform.sizeDelta = new Vector2(18.0f, Screen.height);
     }
 }
