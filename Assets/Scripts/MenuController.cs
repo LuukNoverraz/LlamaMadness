@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+#pragma warning disable 0649
+
 public class MenuController : MonoBehaviour
 {
     [SerializeField] private RectTransform background;

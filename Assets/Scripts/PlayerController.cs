@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+#pragma warning disable 0649
+
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotateSpeed;
     [SerializeField] private string[] inputs;
     private Rigidbody rb;
     [SerializeField] private float jumpForce;
@@ -37,6 +41,8 @@ public class PlayerController : MonoBehaviour
     {
         // float moveHorizontal = -Input.GetAxisRaw("LeftJoyStickHorizontal");
         // float moveVertical = Input.GetAxisRaw("LeftJoyStickVertical");
-        transform.position += new Vector3(Input.GetAxis(inputs[0]) * speed * Time.deltaTime, 0.0f, Input.GetAxis(inputs[1]) * speed * Time.deltaTime);
+        transform.position += transform.forward * -Input.GetAxis(inputs[1]) * moveSpeed * Time.deltaTime;
+        // Input.GetAxis(inputs[1]) * speed * Time.deltaTime
+        transform.Rotate(0.0f, Input.GetAxis(inputs[0]) * rotateSpeed * Time.deltaTime, 0.0f);
     }
 }
