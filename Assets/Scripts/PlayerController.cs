@@ -8,11 +8,15 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
-    [SerializeField] private string[] inputs;
+    [SerializeField] private float fallMultiplier;
+    [SerializeField] private float lowJumpMultiplier;
     private Rigidbody rb;
+    [SerializeField] private string[] inputs;
     [SerializeField] private float jumpForce;
+    [SerializeField] private GameObject jumpEffect;
     private Vector3 jump;
     private bool grounded;
+    private GameObject newJumpEffect;
 
     void Start()
     {
@@ -25,12 +29,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxis(inputs[2]) != 0 && grounded)
-        {
-            grounded = false;
-            rb.velocity = jump;
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
@@ -39,10 +37,36 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // float moveHorizontal = -Input.GetAxisRaw("LeftJoyStickHorizontal");
-        // float moveVertical = Input.GetAxisRaw("LeftJoyStickVertical");
+        // Add vertical force if jump button is pressed
+        if (Input.GetAxis(inputs[2]) != 0 && grounded)
+        {
+            grounded = false;
+            rb.velocity = jump;
+            newJumpEffect = Instantiate(jumpEffect, new Vector3(transform.position.x, transform.position.y - 1.6f,  transform.position.z), jumpEffect.transform.rotation);
+            StartCoroutine(JumpEffectTimer());
+        }
+
+        // Multiply gravity when falling down, adding a weightier effect
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1.0f) * Time.deltaTime;
+        }
+
+        // Change force of jump depending on amount of time jump button is pressed
+        if (rb.velocity.y > 0 && Input.GetAxis(inputs[2]) == 0)
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1.0f) * Time.deltaTime;
+        }
+
+        // Change position and rotate player based on inputs
         transform.position += transform.forward * -Input.GetAxis(inputs[1]) * moveSpeed * Time.deltaTime;
-        // Input.GetAxis(inputs[1]) * speed * Time.deltaTime
         transform.Rotate(0.0f, Input.GetAxis(inputs[0]) * rotateSpeed * Time.deltaTime, 0.0f);
+    }
+
+    IEnumerator JumpEffectTimer()
+    {
+        // Destroy the jump effect after half a second
+        yield return new WaitForSeconds(0.5f);
+        Destroy(newJumpEffect);
     }
 }
