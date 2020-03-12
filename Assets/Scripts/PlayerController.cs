@@ -33,6 +33,11 @@ public class PlayerController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
+
+        if (transform.position.y <= -10.0f)
+        {
+            transform.position = new Vector3(0, 3.27f, 0);
+        }
     }
 
     void FixedUpdate()
@@ -43,7 +48,7 @@ public class PlayerController : MonoBehaviour
             grounded = false;
             rb.velocity = jump;
             newJumpEffect = Instantiate(jumpEffect, new Vector3(transform.position.x, transform.position.y - 1.6f,  transform.position.z), jumpEffect.transform.rotation);
-            StartCoroutine(JumpEffectTimer());
+            Destroy(newJumpEffect, newJumpEffect.GetComponent<Animation>().clip.length);
         }
 
         // Multiply gravity when falling down, adding a weightier effect
@@ -61,12 +66,5 @@ public class PlayerController : MonoBehaviour
         // Change position and rotate player based on inputs
         transform.position += transform.forward * -Input.GetAxis(inputs[1]) * moveSpeed * Time.deltaTime;
         transform.Rotate(0.0f, Input.GetAxis(inputs[0]) * rotateSpeed * Time.deltaTime, 0.0f);
-    }
-
-    IEnumerator JumpEffectTimer()
-    {
-        // Destroy the jump effect after half a second
-        yield return new WaitForSeconds(0.5f);
-        Destroy(newJumpEffect);
     }
 }
