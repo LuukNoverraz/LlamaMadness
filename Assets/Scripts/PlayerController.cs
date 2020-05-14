@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string[] inputs;
     [SerializeField] private float jumpForce;
     [SerializeField] private GameObject jumpEffect;
+    [SerializeField] private Animator animator;
     private Vector3 jump;
     private bool grounded;
     private GameObject newJumpEffect;
@@ -37,6 +38,16 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y <= -10.0f)
         {
             transform.position = new Vector3(0, 3.27f, 0);
+        }
+
+        if (-Input.GetAxis(inputs[1]) != 0 && grounded)
+        {
+            animator.SetBool("Walking", true);
+        }
+
+        else 
+        {
+            animator.SetBool("Walking", false);
         }
     }
 
