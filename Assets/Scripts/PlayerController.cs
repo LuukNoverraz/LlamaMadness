@@ -28,16 +28,19 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision col) => grounded = true;
 
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.tag == "Death")
+        {
+            
+        }
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
-        }
-
-        if (transform.position.y <= -10.0f)
-        {
-            transform.position = new Vector3(0, 3.27f, 0);
         }
 
         if (-Input.GetAxis(inputs[1]) != 0 && grounded)
