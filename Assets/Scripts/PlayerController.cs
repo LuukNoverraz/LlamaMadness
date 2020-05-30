@@ -4,13 +4,24 @@ using UnityEngine;
 
 #pragma warning disable 0649
 
+public enum MovementState 
+{
+    STANDING,
+    MOVING,
+    AERIAL
+}
+
 public class PlayerController : MonoBehaviour
 {
+    public MovementState currentMovementState;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float fallMultiplier;
     [SerializeField] private float lowJumpMultiplier;
     private Rigidbody rb;
+    [SerializeField] private Camera cam;
+    [SerializeField] private Animation fovAnimation;
+    private bool fovAnimPlayed = false;
     [SerializeField] private string[] inputs;
     [SerializeField] private float jumpForce;
     [SerializeField] private GameObject jumpEffect;
@@ -45,12 +56,50 @@ public class PlayerController : MonoBehaviour
 
         if (-Input.GetAxis(inputs[1]) != 0 && grounded)
         {
-            animator.SetBool("Walking", true);
+            ChangeMovementState();
         }
 
         else 
         {
-            animator.SetBool("Walking", false);
+            ChangeMovementState();
+        }
+    }
+
+    void ChangeMovementState()
+    {
+        if(-Input.GetAxis(inputs[1]) == 0 && -Input.GetAxis(inputs[2]) == 0)
+        {
+            currentMovementState = MovementState.STANDING;
+        }
+        else if(Input.GetAxis(inputs[2]) != 0)
+        {
+            currentMovementState = MovementState.AERIAL;
+        }
+        else
+        {
+            currentMovementState = MovementState.MOVING;
+        }
+        switch(currentMovementState)
+        {
+            case MovementState.STANDING:
+                if (fovAnimPlayed)
+                {
+                    fovAnimation.Play("FOVShiftReverse");
+                }
+                fovAnimPlayed = false;
+                animator.SetBool("Walking", false);
+                break;
+            case MovementState.AERIAL:
+                animator.SetBool("Walking", false);
+                break;
+            case MovementState.MOVING:
+                if (!fovAnimPlayed)
+                {
+                    fovAnimation.Play("FOVShift");
+                }
+                fovAnimPlayed = true;
+                animator.SetBool("Walking", true);
+                break;
         }
     }
 
