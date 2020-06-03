@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        // Set border image based on player amount
         borderImage.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, Screen.height);
         if (AmountOfPlayers.playerCount == 2)
         {

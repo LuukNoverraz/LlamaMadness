@@ -8,6 +8,7 @@ public class AmountOfPlayers : MonoBehaviour
     public int setPlayerCount;
     public static int playerCount;
 
+    //Set player count from pressed menu buttons
     public void SetPlayers(int setPlayerCount)
     {
         playerCount = setPlayerCount;

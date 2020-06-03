@@ -21,12 +21,14 @@ public class MenuController : MonoBehaviour
 
     public void PlayerSelectionButton()
     {
+        // Change menu from main to player selection
         mainMenu.SetActive(false);
         playerSelection.SetActive(true);
     }
 
     public void BackButton()
     {
+        // Change player selection menu back to main menu
         playerSelection.SetActive(false);
         mainMenu.SetActive(true);
     }
