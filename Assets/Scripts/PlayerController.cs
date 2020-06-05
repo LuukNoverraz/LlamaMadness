@@ -115,6 +115,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Multiply gravity when falling down, adding a weightier effect
+        
         if (rb.velocity.y < 0)
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1.0f) * Time.deltaTime;
@@ -127,7 +128,9 @@ public class PlayerController : MonoBehaviour
         }
 
         // Change position and rotate player based on inputs
+
         transform.position += transform.forward * -Input.GetAxis(inputs[1]) * moveSpeed * Time.deltaTime;
+        // rb.AddForce(0, 0, -Input.GetAxis(inputs[1]) * moveSpeed * Time.deltaTime);
         transform.Rotate(0.0f, Input.GetAxis(inputs[0]) * rotateSpeed * Time.deltaTime, 0.0f);
     }
 }
