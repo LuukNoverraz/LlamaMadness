@@ -53,16 +53,6 @@ public class PlayerController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
-
-        if (-Input.GetAxis(inputs[1]) != 0 && grounded)
-        {
-            ChangeMovementState();
-        }
-
-        else 
-        {
-            ChangeMovementState();
-        }
     }
 
     void ChangeMovementState()
@@ -105,6 +95,17 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if (-Input.GetAxis(inputs[1]) != 0 && grounded)
+        {
+            ChangeMovementState();
+        }
+
+        else 
+        {
+            ChangeMovementState();
+        }
+
         // Add vertical force if jump button is pressed
         if (Input.GetAxis(inputs[2]) != 0 && grounded)
         {
@@ -130,7 +131,8 @@ public class PlayerController : MonoBehaviour
         // Change position and rotate player based on inputs
 
         transform.position += transform.forward * -Input.GetAxis(inputs[1]) * moveSpeed * Time.deltaTime;
-        // rb.AddForce(0, 0, -Input.GetAxis(inputs[1]) * moveSpeed * Time.deltaTime);
+        // rb.AddForce(transform.forward * -Input.GetAxis(inputs[1]) * moveSpeed * Time.deltaTime);
+        Debug.Log("Forward: " + transform.forward);
         transform.Rotate(0.0f, Input.GetAxis(inputs[0]) * rotateSpeed * Time.deltaTime, 0.0f);
     }
 }

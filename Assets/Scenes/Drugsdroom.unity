@@ -8,8 +8,9 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 4b37281f1f8ecb646b17f6ba0778edd5
+  m_OcclusionCullingData: {fileID: 36300000, guid: 85b3d44eb884da6408ebbf17c818bd28,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -4348,13 +4349,9 @@ GameObject:
   m_Component:
   - component: {fileID: 893660660}
   - component: {fileID: 893660659}
-  - component: {fileID: 893660658}
-  - component: {fileID: 893660657}
-  - component: {fileID: 893660656}
-  - component: {fileID: 893660655}
-  - component: {fileID: 893660654}
-  - component: {fileID: 893660653}
   - component: {fileID: 893660652}
+  - component: {fileID: 893660661}
+  - component: {fileID: 893660653}
   m_Layer: 0
   m_Name: Llama Player 1
   m_TagString: Untagged
@@ -4396,77 +4393,12 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893660651}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 2.0703702, y: 6.6689677, z: 2.0139148}
-  m_Center: {x: 0.043126047, y: 0.002195537, z: 0.0009986013}
---- !u!65 &893660654
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893660651}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.9789722, y: 3.2567048, z: 6.7935877}
-  m_Center: {x: 0.008781403, y: -3.2471025, z: 2.8967943}
---- !u!65 &893660655
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893660651}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1472578, y: 3.9362144, z: 1.219009}
-  m_Center: {x: -1.054139, y: -6.706927, z: 0.7692922}
---- !u!65 &893660656
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893660651}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1472578, y: 3.9362144, z: 1.219009}
-  m_Center: {x: -1.0541389, y: -6.706927, z: 4.97}
---- !u!65 &893660657
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893660651}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1472578, y: 3.9362144, z: 1.219009}
-  m_Center: {x: 1.06, y: -6.706927, z: 0.7692922}
---- !u!65 &893660658
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893660651}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1472578, y: 3.9362144, z: 1.219009}
-  m_Center: {x: 1.06, y: -6.706927, z: 4.97}
+  m_Size: {x: 2.0318537, y: 5.222709, z: 2.0158334}
+  m_Center: {x: -0.015010536, y: 0.77359796, z: 0.006293133}
 --- !u!54 &893660659
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4509,6 +4441,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!65 &893660661
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893660651}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.000375, y: 7.1160593, z: 8.301271}
+  m_Center: {x: -0.004122257, y: -5.104663, z: 3.1706982}
 --- !u!1 &947772811
 GameObject:
   m_ObjectHideFlags: 0
@@ -14438,7 +14383,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!199 &5193652777698538061
 ParticleSystemRenderer:
