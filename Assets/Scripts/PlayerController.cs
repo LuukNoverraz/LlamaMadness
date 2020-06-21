@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject jumpEffect;
     [SerializeField] private Animator animator;
     private Vector3 jump;
+    private Vector3 bouncePad;
     private bool grounded;
     private GameObject newJumpEffect;
 
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, jumpForce, 0.0f);
+        bouncePad = new Vector3(0.0f, 65.0f, 0.0f);
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -41,9 +43,9 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "Death")
+        if (col.tag == "Bounce")
         {
-            
+            rb.AddForce(bouncePad);
         }
     }
 
