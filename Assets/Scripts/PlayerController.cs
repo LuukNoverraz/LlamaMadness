@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, jumpForce, 0.0f);
-        bouncePad = new Vector3(0.0f, 65.0f, 0.0f);
+        bouncePad = new Vector3(0.0f, 22.0f, 0.0f);
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         if (col.tag == "Bounce")
         {
-            rb.AddForce(bouncePad);
+            rb.velocity = bouncePad;
         }
     }
 
@@ -134,7 +134,6 @@ public class PlayerController : MonoBehaviour
 
         transform.position += transform.forward * -Input.GetAxis(inputs[1]) * moveSpeed * Time.deltaTime;
         // rb.AddForce(transform.forward * -Input.GetAxis(inputs[1]) * moveSpeed * Time.deltaTime);
-        Debug.Log("Forward: " + transform.forward);
         transform.Rotate(0.0f, Input.GetAxis(inputs[0]) * rotateSpeed * Time.deltaTime, 0.0f);
     }
 }
