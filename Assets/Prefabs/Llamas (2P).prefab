@@ -1083,7 +1083,7 @@ Camera:
   m_FocalLength: 13.47
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.5
     y: 0
     width: 1
     height: 1
@@ -1879,7 +1879,7 @@ Camera:
   m_FocalLength: 13.47
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: -0.5
     y: 0
     width: 1
     height: 1
