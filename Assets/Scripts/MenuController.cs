@@ -20,17 +20,24 @@ public class MenuController : MonoBehaviour
         background.sizeDelta = screenSize;
     }
 
-    public void PlayerSelectionButton()
+    public void MapSelectionButton()
     {
-        // Change menu from main to player selection
+        // Change menu from main to map selection
         mainMenu.SetActive(false);
         mapSelection.SetActive(true);
     }
     public void StageBackButton()
     {
-        // Change player selection menu back to player selection
+        // Change player selection menu back to main menu
         mainMenu.SetActive(true);
         mapSelection.SetActive(false);
+    }
+
+    public void PlayerSelectionButton()
+    {
+        // Change map selection to player selection
+        mapSelection.SetActive(false);
+        playerSelection.SetActive(true);
     }
 
     public void BackButton()
