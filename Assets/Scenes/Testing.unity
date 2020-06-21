@@ -473,6 +473,7 @@ MonoBehaviour:
   playerPrefabs:
   - {fileID: 7167999581328289092, guid: c1d6278cfbf106b41ac5b0afafa0c733, type: 3}
   - {fileID: 2277009835695725946, guid: 923b4407b8e3c944eb99faa5f59327e8, type: 3}
+  mapPrefabs: []
   borderImage: {fileID: 0}
   twoPlayersBorders: {fileID: 21300000, guid: f60cb7b9dbd829b46b57143218ea1c00, type: 3}
   threePlayersBorders: {fileID: 21300000, guid: fa48b1d1f645f01458591d70c426e915,
@@ -2387,10 +2388,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec7f40a7a608174dad77037889976f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMovementState: 0
   moveSpeed: 9
   rotateSpeed: 125
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
+  cam: {fileID: 0}
+  fovAnimation: {fileID: 0}
   inputs:
   - Horizontal
   - Vertical

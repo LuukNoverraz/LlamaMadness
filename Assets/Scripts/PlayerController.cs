@@ -43,6 +43,11 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+        if (col.tag == "Death")
+        {
+            transform.position = new Vector3(0, 3.27f, 0);
+        }
+
         if (col.tag == "Bounce")
         {
             rb.velocity = bouncePad;
