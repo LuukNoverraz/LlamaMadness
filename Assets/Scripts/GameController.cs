@@ -9,23 +9,19 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject[] playerPrefabs;
     [SerializeField] private GameObject[] mapPrefabs;
-    [SerializeField] private GameObject borderImage;
-    [SerializeField] private Sprite twoPlayersBorders;
-    [SerializeField] private Sprite threePlayersBorders;
+    private Camera[] playerCameras;
+    [SerializeField] private Color[] skyColors;
 
-    void Start()
-    {
+    void Awake()
+    {   
         // Set border image based on player amount
-        borderImage.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, Screen.height);
         if (AmountOfPlayers.playerCount == 2)
         {
             Instantiate(playerPrefabs[0]);
-            // borderImage.GetComponent<Image>().sprite = twoPlayersBorders;
         }
         if (AmountOfPlayers.playerCount == 3)
         {
             Instantiate(playerPrefabs[1]);
-            // borderImage.GetComponent<Image>().sprite = threePlayersBorders;
         }
         if (SelectedStage.selectedStage == 1)
         {
@@ -38,6 +34,25 @@ public class GameController : MonoBehaviour
         if (SelectedStage.selectedStage == 3)
         {
             Instantiate(mapPrefabs[2]);
+        }
+
+        playerCameras[0] = GameObject.FindWithTag("Llama Player 1").GetComponent<Camera>();
+        playerCameras[1] = GameObject.FindWithTag("Llama Player 2").GetComponent<Camera>();
+        
+        if (SelectedStage.selectedStage == 1)
+        {
+            playerCameras[0].backgroundColor = skyColors[0];
+            playerCameras[1].backgroundColor = skyColors[0];
+        }
+        if (SelectedStage.selectedStage == 2)
+        {
+            playerCameras[0].backgroundColor = skyColors[1];
+            playerCameras[1].backgroundColor = skyColors[1];
+        }
+        if (SelectedStage.selectedStage == 3)
+        {
+            playerCameras[0].backgroundColor = skyColors[2];
+            playerCameras[1].backgroundColor = skyColors[2];
         }
     }
 }

@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 4926217871889700235}
   m_Layer: 0
   m_Name: Llama Player 2
-  m_TagString: Untagged
+  m_TagString: Llama Player 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1039,7 +1039,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2591443536726427295}
   - component: {fileID: 4415786331717122445}
-  - component: {fileID: 5523503448278315370}
   - component: {fileID: 7764601345564270957}
   - component: {fileID: 8635858975687051531}
   - component: {fileID: 3471646302792689418}
@@ -1107,14 +1106,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5523503448278315370
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5321654778858701152}
-  m_Enabled: 1
 --- !u!45 &7764601345564270957
 Skybox:
   m_ObjectHideFlags: 0
@@ -1725,7 +1716,7 @@ GameObject:
   - component: {fileID: 7915982530243621577}
   m_Layer: 0
   m_Name: Llama Player 1
-  m_TagString: Untagged
+  m_TagString: Llama Player 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
