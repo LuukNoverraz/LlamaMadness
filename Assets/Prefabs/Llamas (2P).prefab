@@ -909,6 +909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec7f40a7a608174dad77037889976f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
   currentMovementState: 0
   moveSpeed: 9
   rotateSpeed: 125
@@ -920,10 +921,13 @@ MonoBehaviour:
   - Horizontal2
   - Vertical2
   - Jump2
+  - Fire2
   jumpForce: 6.5
   jumpEffect: {fileID: 2998034634691271333, guid: b6c4de0eae9aef047a2654d38f43543f,
     type: 3}
   animator: {fileID: 4999259053051612910}
+  spit: {fileID: 437910366873496676, guid: d9022975e189cd947b32bc2057f4c849, type: 3}
+  spitSpeed: 15
 --- !u!65 &8855897764489564667
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1114,7 +1118,7 @@ Skybox:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5321654778858701152}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: d2f24bfdb0a758e41813bbc7ae4f978f, type: 2}
+  m_CustomSkybox: {fileID: 0}
 --- !u!114 &8635858975687051531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1775,6 +1779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec7f40a7a608174dad77037889976f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
   currentMovementState: 0
   moveSpeed: 9
   rotateSpeed: 125
@@ -1786,10 +1791,13 @@ MonoBehaviour:
   - Horizontal
   - Vertical
   - Jump
+  - Fire1
   jumpForce: 6.5
   jumpEffect: {fileID: 2998034634691271333, guid: b6c4de0eae9aef047a2654d38f43543f,
     type: 3}
   animator: {fileID: 7776926642393259218}
+  spit: {fileID: 437910366873496676, guid: d9022975e189cd947b32bc2057f4c849, type: 3}
+  spitSpeed: 15
 --- !u!65 &6523341389423787530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1910,7 +1918,7 @@ Skybox:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8456873520154998862}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: d2f24bfdb0a758e41813bbc7ae4f978f, type: 2}
+  m_CustomSkybox: {fileID: 0}
 --- !u!114 &5511182505149373863
 MonoBehaviour:
   m_ObjectHideFlags: 0

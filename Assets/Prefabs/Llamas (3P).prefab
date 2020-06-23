@@ -824,6 +824,7 @@ GameObject:
   - component: {fileID: 8011580163095441432}
   - component: {fileID: 8011580163095441435}
   - component: {fileID: 8011580163095441434}
+  - component: {fileID: 13651078141364659}
   m_Layer: 8
   m_Name: Player 1 Camera
   m_TagString: MainCamera
@@ -904,7 +905,7 @@ Skybox:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580163095441436}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: d2f24bfdb0a758e41813bbc7ae4f978f, type: 2}
+  m_CustomSkybox: {fileID: 0}
 --- !u!114 &8011580163095441434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -965,6 +966,23 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!111 &13651078141364659
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011580163095441436}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 188247545684b4b4381f60b8f54f211c, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 188247545684b4b4381f60b8f54f211c, type: 2}
+  - {fileID: 7400000, guid: 3d30d23bc6409ca4da5c24b380a24fc4, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &8011580163101335111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,7 +1372,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580163531744909}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1367,7 +1385,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580163531744909}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1380,7 +1398,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580163531744909}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1393,7 +1411,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580163531744909}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
@@ -1437,18 +1455,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec7f40a7a608174dad77037889976f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
+  currentMovementState: 0
   moveSpeed: 7.5
   rotateSpeed: 100
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
+  cam: {fileID: 8011580163095441433}
+  fovAnimation: {fileID: 13651078141364659}
   inputs:
   - Horizontal
   - Vertical
   - Jump
+  - Fire1
   jumpForce: 6.5
   jumpEffect: {fileID: 2998034634691271333, guid: b6c4de0eae9aef047a2654d38f43543f,
     type: 3}
   animator: {fileID: 862794738768854352}
+  spit: {fileID: 437910366873496676, guid: d9022975e189cd947b32bc2057f4c849, type: 3}
+  spitSpeed: 15
 --- !u!1 &8011580163538447382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,9 +1803,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8011580163889189788}
   - component: {fileID: 8011580163889189784}
-  - component: {fileID: 8011580163889189787}
   - component: {fileID: 8011580163889189786}
   - component: {fileID: 8011580163889189789}
+  - component: {fileID: 1022049021317794677}
   m_Layer: 8
   m_Name: Player 2 Camera
   m_TagString: MainCamera
@@ -1845,14 +1870,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8011580163889189787
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8011580163889189791}
-  m_Enabled: 1
 --- !u!45 &8011580163889189786
 Skybox:
   m_ObjectHideFlags: 0
@@ -1861,7 +1878,7 @@ Skybox:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580163889189791}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: d2f24bfdb0a758e41813bbc7ae4f978f, type: 2}
+  m_CustomSkybox: {fileID: 0}
 --- !u!114 &8011580163889189789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1922,6 +1939,23 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!111 &1022049021317794677
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011580163889189791}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 188247545684b4b4381f60b8f54f211c, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 188247545684b4b4381f60b8f54f211c, type: 2}
+  - {fileID: 7400000, guid: 3d30d23bc6409ca4da5c24b380a24fc4, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &8011580163933284268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,9 +2046,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8011580163971802756}
   - component: {fileID: 8011580163971802752}
-  - component: {fileID: 8011580163971802755}
   - component: {fileID: 8011580163971802754}
   - component: {fileID: 8011580163971802757}
+  - component: {fileID: 8030640078809206604}
   m_Layer: 8
   m_Name: Player 3 Camera
   m_TagString: MainCamera
@@ -2079,14 +2113,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8011580163971802755
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8011580163971802759}
-  m_Enabled: 1
 --- !u!45 &8011580163971802754
 Skybox:
   m_ObjectHideFlags: 0
@@ -2095,7 +2121,7 @@ Skybox:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580163971802759}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: d2f24bfdb0a758e41813bbc7ae4f978f, type: 2}
+  m_CustomSkybox: {fileID: 0}
 --- !u!114 &8011580163971802757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2156,6 +2182,23 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!111 &8030640078809206604
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011580163971802759}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 188247545684b4b4381f60b8f54f211c, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 188247545684b4b4381f60b8f54f211c, type: 2}
+  - {fileID: 7400000, guid: 3d30d23bc6409ca4da5c24b380a24fc4, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &8011580164070813420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,7 +2670,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580164448974952}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2640,7 +2683,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580164448974952}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2653,7 +2696,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580164448974952}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2666,7 +2709,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580164448974952}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
@@ -2710,18 +2753,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec7f40a7a608174dad77037889976f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
+  currentMovementState: 0
   moveSpeed: 7.5
   rotateSpeed: 100
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
+  cam: {fileID: 8011580163971802752}
+  fovAnimation: {fileID: 8030640078809206604}
   inputs:
   - Horizontal3
   - Vertical3
   - Jump3
+  - Fire3
   jumpForce: 6.5
   jumpEffect: {fileID: 2998034634691271333, guid: b6c4de0eae9aef047a2654d38f43543f,
     type: 3}
   animator: {fileID: 5700343436745636187}
+  spit: {fileID: 437910366873496676, guid: d9022975e189cd947b32bc2057f4c849, type: 3}
+  spitSpeed: 15
 --- !u!1 &8011580164476740883
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,7 +3162,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580164648143104}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3125,7 +3175,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580164648143104}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3138,7 +3188,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580164648143104}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3151,7 +3201,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011580164648143104}
-  m_Material: {fileID: 13400000, guid: 20032ec504c9c9e4ab340a77f40ae484, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
@@ -3195,18 +3245,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec7f40a7a608174dad77037889976f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
+  currentMovementState: 0
   moveSpeed: 7.5
   rotateSpeed: 100
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
+  cam: {fileID: 8011580163889189784}
+  fovAnimation: {fileID: 1022049021317794677}
   inputs:
   - Horizontal2
   - Vertical2
   - Jump2
+  - Fire2
   jumpForce: 6.5
   jumpEffect: {fileID: 2998034634691271333, guid: b6c4de0eae9aef047a2654d38f43543f,
     type: 3}
   animator: {fileID: 6995303563062693622}
+  spit: {fileID: 437910366873496676, guid: d9022975e189cd947b32bc2057f4c849, type: 3}
+  spitSpeed: 15
 --- !u!1 &8011580164759803912
 GameObject:
   m_ObjectHideFlags: 0

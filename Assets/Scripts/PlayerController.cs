@@ -13,6 +13,7 @@ public enum MovementState
 
 public class PlayerController : MonoBehaviour
 {
+    [HideInInspector] public GameController gameController;
     public MovementState currentMovementState;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
@@ -30,9 +31,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 bouncePad;
     private bool grounded;
     private GameObject newJumpEffect;
+    [SerializeField] private GameObject spit;
+    private Vector3 spitPosition;
+    [SerializeField] private float spitSpeed;
+    private bool spitShot = false;
 
     void Start()
     {
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, jumpForce, 0.0f);
         bouncePad = new Vector3(0.0f, 22.0f, 0.0f);
@@ -45,12 +51,39 @@ public class PlayerController : MonoBehaviour
     {
         if (col.tag == "Death")
         {
-            transform.position = new Vector3(0, 3.27f, 0);
+            if (gameController.stage == 2)
+            {
+                if (gameController.passedCheckpoints <= 18)
+                {
+                    transform.position = gameController.dreamyCheckpointLocations[(gameController.passedCheckpoints)];
+                }
+                else 
+                {
+                transform.position = new Vector3(0.0f, 3.0f, 0.0f);
+                }
+            }
+            if (gameController.stage == 3)
+            {
+                if (gameController.passedCheckpoints <= 23)
+                {
+                    transform.position = gameController.floatyCheckpointLocations[(gameController.passedCheckpoints)];
+                }
+                else 
+                {
+                transform.position = new Vector3(0.0f, 3.0f, 0.0f);
+                }
+            }
         }
 
         if (col.tag == "Bounce")
         {
             rb.velocity = bouncePad;
+        }
+
+        if (col.tag == "Checkpoint")
+        {
+            gameController.CheckpointPassed();
+            Destroy(col.gameObject);
         }
     }
 
@@ -60,6 +93,27 @@ public class PlayerController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
+
+        spitPosition = new Vector3(transform.position.x, transform.position.y + 0.35f, transform.position.z);
+        
+        if (Input.GetAxis(inputs[3]) != 0 && !spitShot)
+        {
+            spitShot = true;
+            GameObject newSpit = Instantiate(spit, spitPosition, transform.rotation);
+            newSpit.GetComponent<Rigidbody>().AddForce(-transform.forward * (spitSpeed * 10));
+            StartCoroutine(SpitTimer());
+        }
+
+        if (gameController.passedCheckpoints == (gameController.stageCheckpointAmounts))
+        {
+            Debug.Log("yu dead");
+        }
+    }
+
+    IEnumerator SpitTimer()
+    {
+        yield return new WaitForSeconds(2);
+        spitShot = false;
     }
 
     void ChangeMovementState()
@@ -138,7 +192,6 @@ public class PlayerController : MonoBehaviour
         // Change position and rotate player based on inputs
 
         transform.position += transform.forward * -Input.GetAxis(inputs[1]) * moveSpeed * Time.deltaTime;
-        // rb.AddForce(transform.forward * -Input.GetAxis(inputs[1]) * moveSpeed * Time.deltaTime);
         transform.Rotate(0.0f, Input.GetAxis(inputs[0]) * rotateSpeed * Time.deltaTime, 0.0f);
     }
 }

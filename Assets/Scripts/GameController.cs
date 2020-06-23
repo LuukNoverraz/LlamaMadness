@@ -9,10 +9,13 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject[] playerPrefabs;
     [SerializeField] private GameObject[] mapPrefabs;
-    private Camera[] playerCameras;
-    [SerializeField] private Color[] skyColors;
+    public Vector3[] dreamyCheckpointLocations;
+    public Vector3[] floatyCheckpointLocations;
+    [HideInInspector] public int stage;
+    [HideInInspector] public int passedCheckpoints;
+    [HideInInspector] public int stageCheckpointAmounts;
 
-    void Awake()
+    void Start()
     {   
         // Set border image based on player amount
         if (AmountOfPlayers.playerCount == 2)
@@ -29,30 +32,21 @@ public class GameController : MonoBehaviour
         }
         if (SelectedStage.selectedStage == 2)
         {
+            stage = 2;
             Instantiate(mapPrefabs[1]);
+            stageCheckpointAmounts = 18;
         }
         if (SelectedStage.selectedStage == 3)
         {
+            stage = 3;
             Instantiate(mapPrefabs[2]);
+            stageCheckpointAmounts = 23;
         }
+    }
 
-        playerCameras[0] = GameObject.FindWithTag("Llama Player 1").GetComponent<Camera>();
-        playerCameras[1] = GameObject.FindWithTag("Llama Player 2").GetComponent<Camera>();
-        
-        if (SelectedStage.selectedStage == 1)
-        {
-            playerCameras[0].backgroundColor = skyColors[0];
-            playerCameras[1].backgroundColor = skyColors[0];
-        }
-        if (SelectedStage.selectedStage == 2)
-        {
-            playerCameras[0].backgroundColor = skyColors[1];
-            playerCameras[1].backgroundColor = skyColors[1];
-        }
-        if (SelectedStage.selectedStage == 3)
-        {
-            playerCameras[0].backgroundColor = skyColors[2];
-            playerCameras[1].backgroundColor = skyColors[2];
-        }
+    public void CheckpointPassed()
+    {
+        passedCheckpoints++;
+        Debug.Log("Checkpoint passed");
     }
 }
