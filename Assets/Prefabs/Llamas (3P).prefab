@@ -1474,6 +1474,8 @@ MonoBehaviour:
   animator: {fileID: 862794738768854352}
   spit: {fileID: 437910366873496676, guid: d9022975e189cd947b32bc2057f4c849, type: 3}
   spitSpeed: 15
+  winScreen: {fileID: 2037000210559664713, guid: 99c0155797541e74bb987508c1cb4926,
+    type: 3}
 --- !u!1 &8011580163538447382
 GameObject:
   m_ObjectHideFlags: 0
@@ -2772,6 +2774,8 @@ MonoBehaviour:
   animator: {fileID: 5700343436745636187}
   spit: {fileID: 437910366873496676, guid: d9022975e189cd947b32bc2057f4c849, type: 3}
   spitSpeed: 15
+  winScreen: {fileID: 1711864047584340935, guid: 4b246d067daad214abd955447db687d6,
+    type: 3}
 --- !u!1 &8011580164476740883
 GameObject:
   m_ObjectHideFlags: 0
@@ -3264,6 +3268,8 @@ MonoBehaviour:
   animator: {fileID: 6995303563062693622}
   spit: {fileID: 437910366873496676, guid: d9022975e189cd947b32bc2057f4c849, type: 3}
   spitSpeed: 15
+  winScreen: {fileID: 2280857938780377247, guid: d6b2a5830356a0a45be9e0dbbe216fde,
+    type: 3}
 --- !u!1 &8011580164759803912
 GameObject:
   m_ObjectHideFlags: 0

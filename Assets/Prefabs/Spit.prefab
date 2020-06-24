@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6991240372892335879}
   m_Layer: 0
   m_Name: Spit
-  m_TagString: Untagged
+  m_TagString: Spit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,8 +94,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 7.5, z: 2}
+  m_Center: {x: 0, y: 0, z: -5}
 --- !u!54 &437910366873496681
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912ecd7e72818f24d9c36798063878a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeAmount: 5
 --- !u!1 &437910367277276613
 GameObject:
   m_ObjectHideFlags: 0

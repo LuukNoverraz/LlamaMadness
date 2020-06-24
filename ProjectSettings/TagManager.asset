@@ -8,6 +8,10 @@ TagManager:
   - Death
   - Bounce
   - Checkpoint
+  - Spit
+  - Llama Player 2
+  - Llama Player 1
+  - Win Screen
   layers:
   - Default
   - TransparentFX

@@ -928,6 +928,8 @@ MonoBehaviour:
   animator: {fileID: 4999259053051612910}
   spit: {fileID: 437910366873496676, guid: d9022975e189cd947b32bc2057f4c849, type: 3}
   spitSpeed: 15
+  winScreen: {fileID: 2280857938780377247, guid: d6b2a5830356a0a45be9e0dbbe216fde,
+    type: 3}
 --- !u!65 &8855897764489564667
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1798,6 +1800,8 @@ MonoBehaviour:
   animator: {fileID: 7776926642393259218}
   spit: {fileID: 437910366873496676, guid: d9022975e189cd947b32bc2057f4c849, type: 3}
   spitSpeed: 15
+  winScreen: {fileID: 2037000210559664713, guid: 99c0155797541e74bb987508c1cb4926,
+    type: 3}
 --- !u!65 &6523341389423787530
 BoxCollider:
   m_ObjectHideFlags: 0

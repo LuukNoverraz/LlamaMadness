@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 #pragma warning disable 0649
 
@@ -33,16 +35,20 @@ public class PlayerController : MonoBehaviour
     private GameObject newJumpEffect;
     [SerializeField] private GameObject spit;
     private Vector3 spitPosition;
+    private Vector3 spitHitVelocity;
     [SerializeField] private float spitSpeed;
     private bool spitShot = false;
+    private GameObject winScreen;
+    private bool gameOver = false;
 
     void Start()
     {
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         rb = GetComponent<Rigidbody>();
+        winScreen = GameObject.FindWithTag("Win Screen");
         jump = new Vector3(0.0f, jumpForce, 0.0f);
+        spitHitVelocity = new Vector3(0.0f, 0.0f, -15.0f);
         bouncePad = new Vector3(0.0f, 22.0f, 0.0f);
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void OnCollisionEnter(Collision col) => grounded = true;
@@ -85,17 +91,24 @@ public class PlayerController : MonoBehaviour
             gameController.CheckpointPassed();
             Destroy(col.gameObject);
         }
+
+        if (col.tag == "Spit")
+        {
+            rb.AddForce(transform.position + transform.forward * 300);
+            Destroy(col.gameObject);
+        }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-
         spitPosition = new Vector3(transform.position.x, transform.position.y + 0.35f, transform.position.z);
         
+        if (Input.GetKeyDown(KeyCode.Escape) && gameOver)
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("Menu");
+        }
+
         if (Input.GetAxis(inputs[3]) != 0 && !spitShot)
         {
             spitShot = true;
@@ -104,9 +117,11 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(SpitTimer());
         }
 
-        if (gameController.passedCheckpoints == (gameController.stageCheckpointAmounts))
+        if (gameController.passedCheckpoints == (gameController.stageCheckpointAmounts) && !gameOver)
         {
-            Debug.Log("yu dead");
+            Time.timeScale = 0;
+            winScreen.GetComponent<RectTransform>().position = Vector3.zero;
+            gameOver = true;
         }
     }
 
